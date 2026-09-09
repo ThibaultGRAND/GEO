@@ -1,0 +1,21 @@
+services:
+  geo-audit:
+    build: .
+    container_name: vizion-geo-audit
+    restart: unless-stopped
+    ports:
+      - "3099:3099"
+    environment:
+      - NODE_ENV=production
+      - PORT=3099
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3099/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

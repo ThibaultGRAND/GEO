@@ -1,0 +1,27 @@
+{
+  "name": "vizion-geo-audit",
+  "version": "1.0.0",
+  "description": "Outil d'audit SEO/GEO local pour Vizion Academy",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"vite --port 5174\"",
+    "server": "node server.mjs",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "pinia": "^2.1.7",
+    "puppeteer": "^22.0.0",
+    "vue": "^3.4.0",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "concurrently": "^8.2.2",
+    "vite": "^6.0.0"
+  }
+}
